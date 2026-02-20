@@ -24,7 +24,7 @@ Anki templates optimized for Sinitic languages (Mandarin, Cantonese), heavily in
 
 ## License
 
-Licensed under **CC BY-SA 4.0**.
+Licensed under **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)**.
 
 *Disclaimer: This project is an independent creation and is not affiliated with or endorsed by Gabriel Wyner or Fluent Forever.*
 
