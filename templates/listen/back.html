@@ -1,0 +1,56 @@
+<!-- FRONT SIDE -->
+{{FrontSide}}
+<hr id=answer>
+<div class=tags>{{Deck}} {{#Tags}} -- {{/Tags}}{{Tags}}</div>
+
+<!-- COLORED HANZI (if available) -->
+{{#Color}}
+<div style='font-family: Arial; font-size: 80px;'>{{Color}}</div>
+{{/Color}}
+
+{{^Color}}
+<div style='font-family: Arial; font-size: 80px;'>{{Hanzi}}</div>
+{{/Color}}
+
+<!-- SENTENCE -->
+<div id="target"></div>
+<div style='font-family: Arial; font-size: 60px; color:lightgrey;'>{{Sentence}}</div>
+
+<!-- STROKE ORDER -->
+<script type="text/javascript">
+	var characters = "{{Hanzi}}".split("")
+	var js = document.createElement("script");
+	js.type = "text/javascript";
+	js.src = "https://cdn.jsdelivr.net/npm/hanzi-writer@2.2/dist/hanzi-writer.min.js";
+	js.onload = function() {
+		for (x of characters) {
+			var writer = HanziWriter.create('target', x, {
+				width: 100,
+				height: 100,
+				padding: 5,  
+				showOutline: true,
+				strokeAnimationSpeed: 1.5, 
+				delayBetweenStrokes: 150, // milliseconds
+				radicalColor: '#337ab7' // blue
+                
+			});
+			writer.loopCharacterAnimation()
+		};
+	};
+	document.body.appendChild(js);
+</script>
+
+<!-- IMAGE -->
+{{#Picture}}
+<div class="fixed-img">
+  {{Picture}}
+</div>
+{{/Picture}}
+
+<!-- PINYIN -->
+<div style='font-family: Arial; font-size: 60px;'>{{Pinyin}}</div><br>
+
+<!-- RECORDING -->
+<div style='font-family: Arial; font-size: 30px;'>{{English}} {{#Recording}}
+{{Recording}}
+{{/Recording}}

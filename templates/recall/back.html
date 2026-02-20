@@ -1,0 +1,50 @@
+<!--FRONT SIDE-->
+{{FrontSide}}
+<hr id=answer>
+
+<!--BACK SIDE-->
+<div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 0.7em; color: gray; margin-top: -15px; opacity: 0.5;">
+<div><a href="https://github.com/maxim-moellhoff/jiyi_FF" style="color: gray;">Template: jiyi_FF (CC BY-SA 4.0)</a></div><div class="tags">{{Deck}} {{#Tags}} -- {{/Tags}}{{Tags}}</div></div>
+
+<!--HANZI (if availble)-->
+{{#Color}}
+<div style='font-family: Arial; font-size: 80px;'>{{Color}}</div>
+{{/Color}}
+
+{{^Color}}
+<div style='font-family: Arial; font-size: 80px;'>{{Hanzi}}</div>
+{{/Color}}
+
+<!--STROKE ORDER-->
+<div id="target"></div>
+<script type="text/javascript">
+	var characters = "{{Hanzi}}".split("")
+	var js = document.createElement("script");
+	js.type = "text/javascript";
+	js.src = "https://cdn.jsdelivr.net/npm/hanzi-writer@2.2/dist/hanzi-writer.min.js";
+	js.onload = function() {
+		for (x of characters) {
+			var writer = HanziWriter.create('target', x, {
+				width: 100,
+				height: 100,
+				padding: 5,  
+				showOutline: true,
+				strokeAnimationSpeed: 1.5, 
+				delayBetweenStrokes: 150, // milliseconds
+				radicalColor: '#337ab7' // blue
+                
+			});
+			writer.loopCharacterAnimation()
+		};
+	};
+	document.body.appendChild(js);
+</script>
+
+<!--SENTENCE-->
+<br><div style='font-family: Arial; font-size: 30px; color: '>{{Sentence}}</div>
+
+<!--PINYIN-->
+<div style='font-family: Arial; font-size: 60px; color: '>{{Pinyin}}</div>
+
+<!--TRANSLATION-->
+<div style='font-family: Arial; font-size: 30px; color: '>{{English}}{{Recording}}

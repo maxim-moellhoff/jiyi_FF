@@ -1,0 +1,41 @@
+<!-- FRONT SIDE -->
+{{FrontSide}}
+<hr id=answer>
+<div class=tags>{{Deck}} {{#Tags}} -- {{/Tags}}{{Tags}}</div>
+
+<!-- COLORED HANZI (if available)-->
+{{#Color}}
+<div style='font-family: Arial; font-size: 100px;'>{{Color}}</div>
+{{/Color}}
+
+{{^Color}}
+<div style='font-family: Arial; font-size: 100px;'>{{Hanzi}}</div>
+{{/Color}}
+
+<!-- STROKE ORDER-->
+<div id="target"></div>
+<script type="text/javascript">
+	var characters = "{{Hanzi}}".split("")
+	var js = document.createElement("script");
+	js.type = "text/javascript";
+	js.src = "https://cdn.jsdelivr.net/npm/hanzi-writer@2.2/dist/hanzi-writer.min.js";
+	js.onload = function() {
+		for (x of characters) {
+			var writer = HanziWriter.create('target', x, {
+				width: 200,
+				height: 200,
+				padding: 5,  
+				showOutline: true,
+				strokeAnimationSpeed: 1.5, 
+				delayBetweenStrokes: 150, // milliseconds
+				radicalColor: '#337ab7' // blue
+                
+			});
+			writer.loopCharacterAnimation()
+		};
+	};
+	document.body.appendChild(js);
+</script>
+
+<!-- SENTENCE -->
+<div class="sentence-display">{{Sentence}}</div>
