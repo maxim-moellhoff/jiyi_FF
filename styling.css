@@ -1,0 +1,60 @@
+@import url("_editor_button_styles.css");
+
+.card {
+    font-family: arial;
+    font-size: 20px;
+    line-height: 1;
+    text-align: center;
+    /* Removed hardcoded black/white to let Anki handle the base theme */
+    word-wrap: break-word;
+}
+
+/* Character Styling */
+.win .chinese { font-family: "MS Mincho", "ＭＳ 明朝"; }
+.linux .chinese { font-family: "Kochi Mincho", "東風明朝"; }
+.mobile .chinese { font-family: "Hiragino Mincho ProN"; }
+.chinese { font-size: 30px;}
+.reading { font-size: 16px;}
+.comment { font-size: 15px; color: gray;}
+.tags { color: gray; text-align: right; font-size: 10pt;}
+.note { color: gray; font-size: 12pt; margin-top: 20pt;}
+.hint { font-size: 12pt;}
+.chinese-support-sound { display: none; }
+
+.sentence-display {
+    font-family: Arial;
+    font-size: 60px;
+    color: #D3D3D3; /* Standard LightGrey */
+    margin-top: 10px;
+}
+
+/* Light Mode */
+.card:not(.nightMode) .sentence-display {
+    color: #A9A9A9; /* DarkGray - easier to read on white */
+}
+
+/* Night Mode */
+.nightMode .sentence-display {
+    color: #D3D3D3;
+}
+
+/* Image Styling */
+.fixed-img img {
+  width: auto;
+  height: 200px;
+  object-fit: contain;
+}
+
+/* --- TONE COLORS: LIGHT MODE (DEFAULT) --- */
+.tone1 { color: #D72E2E; } /* Deeper Red */
+.tone2 { color: #E67E22; } /* Darker Orange */
+.tone3 { color: #27AE60; } /* Forest Green */
+.tone4 { color: #2980B9; } /* Royal Blue */
+.tone5 { color: #7F8C8D; } /* Concrete Gray */
+
+/* --- TONE COLORS: DARK MODE (NIGHT MODE) --- */
+.nightMode .tone1 { color: #ff6666; } /* Bright Coral */
+.nightMode .tone2 { color: #ffb347; } /* Soft Orange */
+.nightMode .tone3 { color: #b2ff59; } /* Lime Green */
+.nightMode .tone4 { color: #82b1ff; } /* Sky Blue */
+.nightMode .tone5 { color: #b0b0b0; } /* Light Gray */
